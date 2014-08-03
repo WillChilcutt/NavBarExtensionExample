@@ -11,7 +11,7 @@
 
 @interface PushViewController ()
 {
-    BOOL hasMovedView;
+
 }
 @end
 
@@ -28,18 +28,16 @@
 {
     [super viewDidAppear:animated];
 
-    if (hasMovedView == NO)
-    {
-        //hasMovedView = YES;
-        ExtendedNavigationViewController *navController = (ExtendedNavigationViewController *)self.navigationController;
-        
-        CGFloat newYPoint = navController.transferProgressContainerView.frame.origin.y + navController.transferProgressContainerView.frame.size.height;
-        CGFloat newHeight = self.view.frame.size.height - (newYPoint - self.view.frame.origin.y);
-        [self.view setFrame:CGRectMake(self.view.frame.origin.x,
-                                       newYPoint,
-                                       self.view.frame.size.width,
-                                       newHeight)];
-    }
+   
+    //hasMovedView = YES;
+    ExtendedNavigationViewController *navController = (ExtendedNavigationViewController *)self.navigationController;
+    
+    CGFloat newYPoint = navController.transferProgressContainerView.frame.origin.y + navController.transferProgressContainerView.frame.size.height;
+    CGFloat newHeight = self.view.frame.size.height - (newYPoint - self.view.frame.origin.y);
+    [self.view setFrame:CGRectMake(self.view.frame.origin.x,
+                                   newYPoint,
+                                   self.view.frame.size.width,
+                                   newHeight)];
 }
 
 - (IBAction)pushNewViewController:(id)sender
